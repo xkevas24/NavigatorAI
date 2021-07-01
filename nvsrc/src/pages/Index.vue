@@ -15,6 +15,11 @@
   margin-right: 5px
   cursor: pointer
   color: white
+.navi-card
+  width: 100%
+  max-width: 250px
+  cursor: pointer
+  user-select: none
 </style>
 <template>
   <q-page class="flex">
@@ -33,8 +38,11 @@
               <q-btn color="white" text-color="black" label="立刻安装" style="display: none" />
             </div>
           </div>
+          <div class="absolute-bottom-left custom-caption">
+            <div class="text-subtitle1">作者：许潇&nbsp;&nbsp;&nbsp;&nbsp;云南大学</div>
+          </div>
           <div class="absolute-bottom-right custom-caption">
-            <div class="text-subtitle1">最新版本：0.1.20   发布日期：2021年6月30日</div>
+            <div class="text-subtitle1">最新版本：0.1.20 &nbsp;&nbsp;&nbsp;&nbsp;发布日期：2021年6月30日</div>
           </div>
         </q-carousel-slide>
       </q-carousel>
@@ -66,13 +74,13 @@
                 <p class="text-subtitle2 text-grey-6">|安装命令</p>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6">
               <div class="col-md-12">
-                <div style="background-color: #66229B;width: 500px">
+                <div style="background-color: #66229B;">
                   <p class="text-subtitle2 selection-active" style="text-align: center">MXNet 1.7.0</p>
                 </div>
               </div>
-              <div class="col-md-12 row" style="width: 500px;text-align: center;">
+              <div class="col-md-12 row" style="text-align: center;">
                 <div class="col force-22 selection-active platform" id="Windows" @click="switch_platform('Windows')">
                   <p class="text-subtitle2">Windows</p>
                 </div>
@@ -92,12 +100,12 @@
               </div>
 
               <div class="col-md-12" style="margin-top: 16px">
-                <div style="background-color: #66229B;width: 500px">
+                <div style="background-color: #66229B;">
                   <p class="text-subtitle2 selection-active" style="text-align: center">Python</p>
                 </div>
               </div>
 
-              <div class="row col-md-12" style="width: 500px;text-align: center;">
+              <div class="row col-md-12" style="text-align: center;">
                 <div class="col force-22 selection-active cuda" @click="switch_cuda('cu102')">
                   <p class="text-subtitle2" id="cu102">CUDA 10.2</p>
                 </div>
@@ -110,11 +118,11 @@
               </div>
 
               <div class="col-md-12" style="margin-top: 16px">
-                <div style="background-color: #66229B;width: 500px">
+                <div style="background-color: #66229B;">
                   <p class="text-subtitle2 selection-active" style="text-align: center">0.1.20</p>
                 </div>
               </div>
-              <div class="col-md-12" style="margin-top: 16px;width: 500px">
+              <div class="col-md-12" style="margin-top: 16px;">
                 <pre style="background-color: #e0e0e0">
 
   # 方式一：通过nwpm安装（推荐）
@@ -125,6 +133,45 @@
   pip3 install nvmx{{cuda}}=={{version}}
                 </pre>
               </div>
+            </div>
+            <div class="col-md-5">
+              <div class="row">
+                <div class="col">
+                  <q-card class="navi-card" style="margin: 0 40px 10px 40px" @click="routeto('/docs')">
+                    <q-card-section>
+                      <div class="text-h6">框架使用手册</div>
+                      <div class="text-subtitle2">Navigator框架使用说明文档</div>
+                    </q-card-section>
+                  </q-card>
+                </div>
+                <div class="col">
+                  <q-card class="navi-card" style="margin: 0 40px 0 40px" @click="routeto('/bbs')">
+                    <q-card-section>
+                      <div class="text-h6">社区论坛</div>
+                      <div class="text-subtitle2">欢迎提出issue</div>
+                    </q-card-section>
+                  </q-card>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <q-card class="navi-card" style="margin: 0 40px 10px 40px" @click="routeto('/pipnwpm')">
+                    <q-card-section>
+                      <div class="text-h6">包管理器</div>
+                      <div class="text-subtitle2">nwpm包管理工具使用文档</div>
+                    </q-card-section>
+                  </q-card>
+                </div>
+                <div class="col">
+                  <q-card class="navi-card" style="margin: 0 40px 10px 40px" @click="routeto('/nwpm')">
+                    <q-card-section>
+                      <div class="text-h6">工作包</div>
+                      <div class="text-subtitle2">工作包的设计、发布、使用指南</div>
+                    </q-card-section>
+                  </q-card>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
@@ -171,6 +218,9 @@ export default {
       }
       document.getElementById(keyword).classList = "col force-22 selection-active cuda"
       this.cuda = keyword
+    },
+    routeto(href){
+      this.$router.push(href)
     }
   }
 }

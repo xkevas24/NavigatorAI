@@ -2,6 +2,9 @@
 .rowico{
   padding-bottom: 15px;
 }
+.q-toolbar__title{
+  max-width: 300px !important;
+}
 </style>
 <template>
   <q-layout view="hHh lpR lfr">
@@ -12,9 +15,24 @@
         <q-toolbar-title>
           Navigator
         </q-toolbar-title>
+        <q-tabs align="center">
+          <q-route-tab to="/" label="首页" />
+          <q-route-tab to="/docs" label="使用文档" />
+          <q-route-tab to="/nwpm" label="工作包管理平台" />
+          <q-route-tab to="/mobile" label="移动端移植指南" />
+          <q-route-tab to="/blocks" label="分布式计算指南" />
+          <q-route-tab to="/github" label="Github" />
+          <q-route-tab to="/bbs" label="社区论坛" />
+          <q-route-tab to="/en" label="English"/>
+        </q-tabs>
 
-        <div>Quasar v{{ $q.version }}</div>
+
+        <div>
+
+
+        </div>
       </q-toolbar>
+
     </q-header>
 
     <q-page-container>
@@ -72,6 +90,9 @@ export default defineComponent({
     return {
 
     }
+  },
+  methods:{
+
   }
 })
 </script>
