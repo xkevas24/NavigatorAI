@@ -2,7 +2,7 @@
   "name": "nvsrc",
   "version": "0.0.1",
   "description": "A Quasar Framework app",
-  "productName": "Quasar App",
+  "productName": "Navigator Framework",
   "author": "Alan Xu <xkevas@qq.com>",
   "private": true,
   "scripts": {
